@@ -1,4 +1,6 @@
-## Terminal Environment Setup
+## Shell Environment Setup
+
+This guide provides instructions for setting up my development shell environment. It's tailored to my personal preferences and requirements, but feel free to use it as a foundation to create your own customized setup.
 
 ### 1. Installing ZSH
 
@@ -194,3 +196,17 @@ include this at the end of your `~/.zshrc` file.
 eval "$(ssh-agent -s)"
 cls
 ```
+
+## Licence
+
+This is an open-source project and is available under the [**MIT License**](LICENSE). You are free to use, modify, and distribute the code in accordance with the terms of the license.
+
+## Contributors
+
+Contributions are highly appreciated! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+[feliperdamaceno](https://github.com/feliperdamaceno)
+
+## Contact me
+
+Linkedin: [feliperdamaceno](https://www.linkedin.com/in/feliperdamaceno)
