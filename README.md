@@ -1,6 +1,8 @@
 ## Shell Environment Setup
 
-This guide provides instructions for setting up my development shell environment. It's tailored to my personal preferences and requirements, but feel free to use it as a foundation to create your own customized setup.
+This guide provides instructions for setting up my development shell
+environment. It's tailored to my personal preferences and requirements, but feel
+free to use it as a foundation to create your own customized setup.
 
 ### 1. Installing ZSH
 
@@ -31,39 +33,34 @@ Nerd Font options available on their [website] (https://www.nerdfonts.com/).
 
 \* The recommended font is `Jetbrains Mono`.
 
-### 4. Installing Powerlevel10k
+### 4. Installing Oh My Posh
 
 Follow the guide on their
-[official repository](https://github.com/romkatv/powerlevel10k).
+[official website](https://ohmyposh.dev/docs/installation/linux).
 
-Once that is done, next time you open your terminal window, the setup wizard
-will kick off, so chose the options by your preference.
+To add the prompt customizations, copy the `prompt.toml` file to
+`~/.config/ohmyposh/`.
 
-Finally, to personalize the prompt character symbol, add the following into your
-newly created `.p10k.zsh` file:
+Then, include into your `.zshrc` file the following:
 
 ```shell
-# Custom prompt symbol (success).
-typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION='➜ '
-typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VICMD_CONTENT_EXPANSION='➜ '
-typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIVIS_CONTENT_EXPANSION='➜ '
-typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIOWR_CONTENT_EXPANSION='➜ '
-
-# Custom prompt symbol (error).
-typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION='✗ '
-typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VICMD_CONTENT_EXPANSION='✗ '
-typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIVIS_CONTENT_EXPANSION='✗ '
-typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIOWR_CONTENT_EXPANSION='✗ '
+# Prompt
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/prompt.toml)"
 ```
 
 ### 5. Installing `zinit` core plugins
 
-\* For the last plugin to work properly, first ensure to have intalled
-[`fzf`](https://github.com/junegunn/fzf), and have included
-`eval "$(fzf --zsh)"` at the end of your `.zshrc` config.
+\* For the last plugin to work properly, first make sure to to have **manually**
+intalled [`fzf`](https://github.com/junegunn/fzf), and have included the
+following to your `.zshrc` config:
 
-Then, to get the most of your shell, include the followig lines in your
-`.zshrc`:
+```shell
+# Source/Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+```
+
+Once that is done, to get the most of your shell, include the followig lines in
+your `.zshrc`:
 
 ```shell
 # Add in zsh plugins
@@ -165,7 +162,7 @@ As for the programming languages version manager, install the following:
 Finally, to initialize `asdf` at startup, include the following lines:
 
 ```shell
-# Source/Load ASDF
+# Source/Load asdf
 . "$HOME/.asdf/asdf.sh"
 ```
 
@@ -176,7 +173,7 @@ CLI more plesant, for example:
 
 ```shell
 # Aliases
-alias cls="clear"
+alias c="clear"
 ```
 
 ### 9. Install Zoxide
@@ -184,26 +181,30 @@ alias cls="clear"
 Follow the instructions from the official repo:
 https://github.com/ajeetdsouza/zoxide.
 
-Once that is ready, install `fzf` from https://github.com/junegunn/fzf and add
-`eval "$(zoxide init --cmd cd zsh)"` to the end of `~/.zshrc` file.
+Once that is ready, add `eval "$(zoxide init --cmd cd zsh)"` to the end of
+`~/.zshrc` file.
 
 ### 10. SSH Agent
 
-In order to your SSH agent to start when you shell is being loadded, also
-include this at the end of your `~/.zshrc` file.
+In order for your SSH agent to start when you shell is being loaded, include the
+following at the very start of your `~/.zshrc` file:
 
 ```shell
-eval "$(ssh-agent -s)"
-cls
+# Start ssh agent on load
+eval "$(ssh-agent -s)" && clear
 ```
 
 ## Licence
 
-This is an open-source project and is available under the [**MIT License**](LICENSE). You are free to use, modify, and distribute the code in accordance with the terms of the license.
+This is an open-source project and is available under the
+[**MIT License**](LICENSE). You are free to use, modify, and distribute the code
+in accordance with the terms of the license.
 
 ## Contributors
 
-Contributions are highly appreciated! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+Contributions are highly appreciated! If you encounter any issues or have
+suggestions for improvements, please feel free to open an issue or submit a pull
+request.
 
 [feliperdamaceno](https://github.com/feliperdamaceno)
 
