@@ -31,6 +31,9 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 
+# ASDF shell completions
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -57,12 +60,11 @@ zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Source/Load asdf
-. "$HOME/.asdf/asdf.sh"
-
 # Path
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/nvim/bin"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+. ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
 
 # Aliases
 alias cat="bat"
