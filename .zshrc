@@ -16,6 +16,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Source/Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Load Completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
@@ -25,11 +30,6 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
-
-# Load Completions
-autoload -Uz compinit && compinit
-
-zinit cdreplay -q
 
 # Keybindings
 bindkey -e
@@ -52,8 +52,8 @@ setopt hist_find_no_dups
 
 # Completion Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
