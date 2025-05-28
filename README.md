@@ -129,8 +129,8 @@ of the auto completions:
 ```shell
 # Completion Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 ```
@@ -159,12 +159,7 @@ As for the programming languages version manager, install the following:
 
 - [asdf](https://github.com/asdf-vm/asdf)
 
-Finally, to initialize `asdf` at startup, include the following lines:
-
-```shell
-# Source/Load asdf
-. "$HOME/.asdf/asdf.sh"
-```
+\* Make sure to add the binary under `$HOME/.local/bin`. 
 
 ### 8. Extra Aliases:
 
